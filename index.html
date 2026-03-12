@@ -84,14 +84,22 @@ img {
   flex-shrink: 0;
 }
 
-/* Logo imagen hero */
+/* Logo imagen hero — circular sin fondo */
 .hero-logo-img {
-  width: clamp(100px, 18vw, 160px);
-  height: clamp(100px, 18vw, 160px);
+  width: clamp(110px, 20vw, 170px);
+  height: clamp(110px, 20vw, 170px);
   object-fit: contain;
   margin-bottom: 10px;
-  filter: drop-shadow(0 4px 20px rgba(245,194,24,0.45));
+  border-radius: 50%;
+  /* Quitamos el fondo blanco, solo sombra dorada suave */
+  filter:
+    drop-shadow(0 0 18px rgba(245,194,24,0.55))
+    drop-shadow(0 0 36px rgba(245,194,24,0.25));
   animation: fadeDown 0.7s ease both 0.1s;
+  /* Borde dorado sutil circular */
+  outline: 3px solid rgba(245,194,24,0.35);
+  outline-offset: 4px;
+  background: transparent;
 }
 
 /* Logo imagen footer */
