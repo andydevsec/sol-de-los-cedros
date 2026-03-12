@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema Contra Incendio — El Sol de Los Cedros</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0D2B55;
+    --verde: #1E6B45;
+    --amarillo: #F5C218;
+    --rojo: #C0392B;
+    --gris: #F4F6F9;
+    --gris-oscuro: #1A202C;
+    --gris-texto: #4A5568;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--gris);
+    color: var(--gris-oscuro);
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    background: var(--azul);
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+
+  .nav-back {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--amarillo); }
+
+  .nav-sep { color: rgba(255,255,255,0.2); }
+
+  .nav-titulo {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .nav-logo-img {
+    width: 36px; height: 36px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 2px;
+    margin-left: auto;
+  }
+
+  /* ── HERO DEL TRABAJO ── */
+  .trabajo-hero {
+    background: linear-gradient(135deg, var(--azul) 0%, #1A4A8A 60%, #0D2B55 100%);
+    padding: 48px 6% 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .trabajo-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 0, transparent 50%);
+    background-size: 18px 18px;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+  .trabajo-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amarillo);
+    margin-bottom: 16px;
+  }
+
+  .trabajo-titulo {
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .trabajo-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .trabajo-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .badge-verde { background: rgba(30,107,69,0.3); border: 1px solid rgba(30,107,69,0.5); color: #6EE7A0; }
+  .badge-amarillo { background: rgba(245,194,24,0.15); border: 1px solid rgba(245,194,24,0.35); color: var(--amarillo); }
+  .badge-rojo { background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.4); color: #FC8181; }
+
+  /* ── CONTENIDO PRINCIPAL ── */
+  .contenido {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 6% 60px;
+  }
+
+  /* ── ETAPAS ── */
+  .etapa {
+    margin-bottom: 48px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .etapa-header {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #F0F4F8;
+  }
+
+  .etapa-numero {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .etapa-1 .etapa-numero { background: #FEE2E2; color: var(--rojo); }
+  .etapa-2 .etapa-numero { background: #FEF3C7; color: #92400E; }
+  .etapa-3 .etapa-numero { background: #DBEAFE; color: #1E40AF; }
+  .etapa-4 .etapa-numero { background: #EDE9FE; color: #5B21B6; }
+  .etapa-5 .etapa-numero { background: #D1FAE5; color: var(--verde); }
+
+  .etapa-info h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--gris-oscuro);
+  }
+
+  .etapa-info p {
+    font-size: 12px;
+    color: var(--gris-texto);
+    margin-top: 2px;
+    font-family: 'Lora', serif;
+    font-style: italic;
+  }
+
+  .etapa-estado {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .estado-problema { background: #FEE2E2; color: var(--rojo); }
+  .estado-proceso  { background: #FEF3C7; color: #92400E; }
+  .estado-listo    { background: #D1FAE5; color: var(--verde); }
+
+  /* ── GALERÍA DE FOTOS POR ETAPA ── */
+  .etapa-body { padding: 24px 28px; }
+
+  .etapa-descripcion {
+    font-size: 13px;
+    color: var(--gris-texto);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    font-family: 'Lora', serif;
+  }
+
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .foto-card {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #F8FAFC;
+    border: 2px dashed #CBD5E0;
+    cursor: pointer;
+    transition: all 0.2s;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #A0AEC0;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+    position: relative;
+  }
+
+  .foto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+  }
+
+  .foto-card:hover {
+    border-color: var(--azul);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .foto-card .foto-icon { font-size: 28px; }
+
+  .foto-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 18px 10px 8px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    display: none;
+  }
+
+  .foto-card img ~ .foto-label { display: block; }
+
+  /* ── RESUMEN FINAL ── */
+  .resumen-final {
+    background: linear-gradient(135deg, #0D2B55, #1E6B45);
+    border-radius: 16px;
+    padding: 28px 32px;
+    color: white;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .resumen-icono { font-size: 40px; flex-shrink: 0; }
+
+  .resumen-texto h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .resumen-texto p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    font-family: 'Lora', serif;
+    font-style: italic;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px; right: 24px;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+  /* ── ALERTA VÁLVULA ── */
+  .alerta-valvula {
+    background: #FFF8E1;
+    border: 1px solid rgba(245,194,24,0.4);
+    border-left: 4px solid #F5C218;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    color: #7A5C00;
+    line-height: 1.6;
+  }
+  .alerta-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  /* ── SOLUCIONES TÉCNICAS ── */
+  .soluciones-titulo {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--gris-oscuro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .soluciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .solucion-card {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.55;
+    border: 1px solid transparent;
+  }
+  .solucion-card strong { display: block; font-size: 12px; margin-bottom: 3px; }
+  .solucion-card p { color: var(--gris-texto); font-family: 'Lora', serif; font-style: italic; }
+  .solucion-card em { color: var(--verde); font-weight: 700; }
+  .solucion-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .solucion-1 { background: #F0FAF5; border-color: rgba(30,107,69,0.2); color: #1A5C3A; }
+  .solucion-2 { background: #EEF4FF; border-color: rgba(26,74,138,0.2); color: #1A3A8A; }
+  .solucion-3 { background: #FFFBEA; border-color: rgba(180,140,0,0.2); color: #7A5C00; }
+  .solucion-4 { background: #FEF2F2; border-color: rgba(192,57,43,0.2); color: #922B21; }
+
+  /* ── PROYECCIÓN ── */
+  .etapa-proyeccion .etapa-numero {
+    background: linear-gradient(135deg, var(--azul), var(--verde));
+    color: white;
+    font-size: 18px;
+  }
+  .proyeccion-lista { display: flex; flex-direction: column; gap: 14px; }
+  .proy-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: var(--gris);
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .proy-item p { font-size: 12px; color: var(--gris-texto); margin-top: 3px; font-family: 'Lora', serif; }
+  .proy-num {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .proy-destacado {
+    background: linear-gradient(135deg, #EEF4FF, #E8F5EE);
+    border: 1px solid rgba(30,107,69,0.2);
+  }
+  .proy-destacado .proy-num { background: var(--verde); }
+  .proy-destacado strong { color: var(--verde); }
+
+  /* ── FOOTER ── */
+  .pie {
+    background: var(--azul);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 11px;
+    padding: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .trabajo-hero { padding: 32px 5% 28px; }
+    .contenido { padding: 28px 5% 48px; }
+    .etapa-body { padding: 18px 18px; }
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+    .resumen-final { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-back">← Volver</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-titulo">Sistema Contra Incendio</span>
+  <img src="fotos/logo.png" alt="Logo" class="nav-logo-img">
+</nav>
+
+<!-- HERO DEL TRABAJO -->
+<section class="trabajo-hero">
+  <div class="hero-content">
+    <div class="trabajo-eyebrow">🔴 Trabajo Realizado · Marzo 2026</div>
+    <h1 class="trabajo-titulo">Sistema Contra Incendio</h1>
+    <p class="trabajo-desc">
+      El motor de la bomba contra incendios presentaba fallas críticas que impedían su funcionamiento. 
+      La Junta Directiva coordinó la reparación completa para garantizar la seguridad de todos los residentes.
+    </p>
+    <div class="trabajo-badges">
+      <span class="badge badge-verde">✅ Operativo</span>
+      <span class="badge badge-amarillo">⚙️ Reparación completa</span>
+      <span class="badge badge-amarillo">📅 Marzo 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<main class="contenido">
+
+  <!-- ETAPA 1 — CÓMO SE ENCONTRÓ -->
+  <div class="etapa etapa-1">
+    <div class="etapa-header">
+      <div class="etapa-numero">1</div>
+      <div class="etapa-info">
+        <h3>Situación Inicial — Cómo se encontró</h3>
+        <p>Estado del sistema antes de la intervención</p>
+      </div>
+      <span class="etapa-estado estado-problema">⚠️ Problema</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        El motor de la bomba contra incendios fue encontrado completamente desarmado y fuera de servicio. 
+        Las bobinas presentaban quemaduras y el contactor eléctrico estaba dañado, dejando el sistema 
+        de seguridad del edificio sin funcionamiento.
+      </p>
+      <div class="galeria">
+        <div class="foto-card" onclick="verFoto(this)">
+          <img src="fotos/incendio-inicial-1.png">
+          <span class="foto-label">Motor y piezas desarmadas</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <img src="fotos/incendio-inicial-2.png">
+          <span class="foto-label">Bobina del contactor</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <img src="fotos/incendio-inicial-3.png">
+          <span class="foto-label">Cuarto de bombas - estado inicial</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 2 — REPARACIÓN Y REBOBINADO -->
+  <div class="etapa etapa-2">
+    <div class="etapa-header">
+      <div class="etapa-numero">2</div>
+      <div class="etapa-info">
+        <h3>Reparación y Rebobinado del Motor</h3>
+        <p>Proceso técnico de recuperación del motor eléctrico</p>
+      </div>
+      <span class="etapa-estado estado-proceso">🔧 Proceso</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        Se llevó a cabo el rebobinado completo del motor eléctrico en taller especializado. 
+        Este proceso consiste en reemplazar el cobre de los devanados internos que se habían 
+        quemado, restaurando la capacidad eléctrica original del motor.
+      </p>
+      <div class="galeria">
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-rebobinado-1.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Desmontaje del motor</span>
+          <span class="foto-label">Desmontaje</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-rebobinado-2.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Rebobinado de cobre</span>
+          <span class="foto-label">Rebobinado</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-rebobinado-3.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Motor reparado</span>
+          <span class="foto-label">Motor reparado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 3 — PROCESO DE INSTALACIÓN -->
+  <div class="etapa etapa-3">
+    <div class="etapa-header">
+      <div class="etapa-numero">3</div>
+      <div class="etapa-info">
+        <h3>Proceso de Instalación</h3>
+        <p>Reinstalación del motor y conexiones eléctricas</p>
+      </div>
+      <span class="etapa-estado estado-proceso">🔧 Proceso</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        Una vez reparado el motor, se procedió a su reinstalación en el sistema contra incendios del edificio. 
+        Se realizaron todas las conexiones eléctricas, pruebas de presión y verificación del caudal 
+        para garantizar el correcto funcionamiento.
+      </p>
+      <div class="galeria">
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-instalacion-1.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Montaje del motor</span>
+          <span class="foto-label">Montaje</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-instalacion-2.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Conexiones eléctricas</span>
+          <span class="foto-label">Conexiones</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-instalacion-3.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Prueba del sistema</span>
+          <span class="foto-label">Prueba</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 4 — REPARACIÓN CONTACTOR -->
+  <div class="etapa etapa-4">
+    <div class="etapa-header">
+      <div class="etapa-numero">4</div>
+      <div class="etapa-info">
+        <h3>Reparación de Bobina del Contactor</h3>
+        <p>Reemplazo del componente eléctrico de control</p>
+      </div>
+      <span class="etapa-estado estado-proceso">🔧 Proceso</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        El contactor eléctrico —componente que controla el encendido y apagado del motor— 
+        presentaba su bobina quemada. Se realizó el reemplazo completo del contactor por uno nuevo, 
+        asegurando el control automático del sistema.
+      </p>
+      <div class="galeria">
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-contactor-1.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Contactor quemado</span>
+          <span class="foto-label">Contactor quemado</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-contactor-2.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Contactor nuevo</span>
+          <span class="foto-label">Contactor nuevo</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-contactor-3.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Instalado y probado</span>
+          <span class="foto-label">Instalado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 5 — SITUACIÓN ACTUAL -->
+  <div class="etapa etapa-5">
+    <div class="etapa-header">
+      <div class="etapa-numero">5</div>
+      <div class="etapa-info">
+        <h3>Situación Actual</h3>
+        <p>Estado del sistema al día de hoy</p>
+      </div>
+      <span class="etapa-estado estado-proceso">⏳ En seguimiento</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        El motor fue reparado y reinstalado correctamente. Sin embargo, al intentar realizar 
+        la <strong>prueba con agua</strong>, se encontró que la válvula principal del sistema 
+        está completamente atascada — no se puede abrir. Esto se debe a que 
+        <strong>nunca fue utilizada desde que la Constructora hizo entrega del edificio</strong>, 
+        y no existe ningún informe ni constancia de que el sistema haya sido probado en su momento.
+      </p>
+
+      <!-- ALERTA VÁLVULA -->
+      <div class="alerta-valvula">
+        <div class="alerta-header">
+          <span>⚠️</span>
+          <strong>Válvula principal atascada — Pendiente de reparación</strong>
+        </div>
+        <p>La válvula se realizará durante la limpieza programada de la cisterna <strong>(Junio–Julio 2026)</strong>, 
+        cuando se evacúe el agua para poder desmontar, llevar a reparar y reinstalar correctamente.</p>
+      </div>
+
+      <!-- SOLUCIONES TÉCNICAS -->
+      <div class="soluciones-titulo">🔧 Opciones técnicas para la válvula atascada</div>
+      <div class="soluciones-grid">
+        <div class="solucion-card solucion-1">
+          <div class="solucion-icon">🟢</div>
+          <div>
+            <strong>Opción 1 — Lubricante penetrante</strong>
+            <p>Aplicar WD-40 o aceite penetrante en el vástago y prensaestopas. Dejar actuar 24–48h y usar llave stilson con palanca. Costo: S/15–25. <em>Primera opción a intentar — económica y efectiva.</em></p>
+          </div>
+        </div>
+        <div class="solucion-card solucion-4">
+          <div class="solucion-icon">🔴</div>
+          <div>
+            <strong>Opción 2 — Desmontaje en limpieza de cisterna</strong>
+            <p>Si el lubricante no funciona, durante la evacuación de la cisterna (Jun–Jul 2026) se desmontará la válvula y se llevará a reparación en taller especializado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="galeria" style="margin-top:20px;">
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-actual-1.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Motor instalado</span>
+          <span class="foto-label">Motor instalado</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-valvula.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Válvula atascada</span>
+          <span class="foto-label">Válvula</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img src="fotos/incendio-actual-3.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Estado general</span>
+          <span class="foto-label">Estado general</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECCIÓN -->
+  <div class="etapa etapa-proyeccion">
+    <div class="etapa-header">
+      <div class="etapa-numero">🚀</div>
+      <div class="etapa-info">
+        <h3>Proyección — Próximos pasos</h3>
+        <p>Plan de acción para completar el sistema</p>
+      </div>
+      <span class="etapa-estado estado-proceso">📅 Planificado</span>
+    </div>
+    <div class="etapa-body">
+      <div class="proyeccion-lista">
+        <div class="proy-item">
+          <span class="proy-num">1</span>
+          <div>
+            <strong>Reparación de la válvula principal</strong>
+            <p>Intentar con lubricante penetrante primero. De no funcionar, se realizará el desmontaje completo durante la limpieza de cisterna (Junio–Julio 2026).</p>
+          </div>
+        </div>
+        <div class="proy-item">
+          <span class="proy-num">2</span>
+          <div>
+            <strong>Prueba hidráulica completa del sistema</strong>
+            <p>Una vez reparada la válvula, se realizará la prueba con agua para verificar presión, caudal y funcionamiento integral.</p>
+          </div>
+        </div>
+        <div class="proy-item proy-destacado">
+          <span class="proy-num">3</span>
+          <div>
+            <strong>Oficio oficial a la Compañía de Bomberos del Perú 🚒</strong>
+            <p>Se emitirá un documento oficial invitando a los bomberos a realizar las <strong>pruebas certificadas del sistema</strong> 
+            y capacitar a los residentes en el manejo del equipo ante una eventual emergencia. 
+            <strong>El apoyo y participación de todos los propietarios es fundamental.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUMEN FINAL -->
+  <div class="resumen-final">
+    <div class="resumen-icono">🛡️</div>
+    <div class="resumen-texto">
+      <h3>Trabajamos para proteger a cada familia</h3>
+      <p>
+        La Junta Directiva está dando seguimiento puntual a cada pendiente. 
+        Con tu apoyo y pago puntual de las cuotas, podremos completar este sistema 
+        y tener un edificio <strong>certificado y seguro ante cualquier emergencia.</strong>
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="pie">
+  © 2026 Edificio El Sol de Los Cedros · Junta Directiva 2026 · Av. América Oeste 242, Urb. Los Cedros — Trujillo
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="cerrarFoto()">
+  <span class="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function verFoto(card) {
+  const img = card.querySelector('img');
+  if (!img) return;
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function cerrarFoto() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarFoto(); });
+</script>
+</body>
+</html>
