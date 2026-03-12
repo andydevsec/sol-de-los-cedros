@@ -372,9 +372,10 @@
   }
   .soluciones-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-bottom: 8px;
+    width: 100%;
   }
   .solucion-card {
     display: flex;
@@ -663,24 +664,12 @@
         </div>
       </div>
 
-      <div class="galeria" style="margin-top:20px;">
+      <div class="galeria" style="margin-top:20px; max-width: 220px;">
         <div class="foto-card" onclick="verFoto(this)">
-          <!-- <img src="fotos/incendio-actual-1.jpg"> -->
+          <!-- <img src="fotos/incendio-actual.jpg"> -->
           <span class="foto-icon">📷</span>
-          <span>Motor instalado</span>
-          <span class="foto-label">Motor instalado</span>
-        </div>
-        <div class="foto-card" onclick="verFoto(this)">
-          <!-- <img src="fotos/incendio-valvula.jpg"> -->
-          <span class="foto-icon">📷</span>
-          <span>Válvula atascada</span>
-          <span class="foto-label">Válvula</span>
-        </div>
-        <div class="foto-card" onclick="verFoto(this)">
-          <!-- <img src="fotos/incendio-actual-3.jpg"> -->
-          <span class="foto-icon">📷</span>
-          <span>Estado general</span>
-          <span class="foto-label">Estado general</span>
+          <span>Sistema actual</span>
+          <span class="foto-label">Sistema actual</span>
         </div>
       </div>
     </div>
