@@ -2,15 +2,66 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0D2B55">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- SEO -->
+<meta name="description" content="Informe de gestión de la Junta Directiva 2026 del Edificio El Sol de Los Cedros, Urbanización Los Cedros, Trujillo. Conoce los trabajos realizados, proyectos futuros y normas de convivencia.">
+<meta name="keywords" content="El Sol de Los Cedros, Junta Directiva, Trujillo, Los Cedros, edificio residencial, informe gestión 2026, Av. América Oeste">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Junta Directiva El Sol de Los Cedros 2026">
+<link rel="canonical" href="https://soldeloscedros.netlify.app/">
+
+<!-- Open Graph (WhatsApp, redes sociales) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="El Sol de Los Cedros — Junta Directiva 2026">
+<meta property="og:description" content="Informe de gestión, trabajos realizados y proyectos del edificio El Sol de Los Cedros, Trujillo.">
+<meta property="og:url" content="https://soldeloscedros.netlify.app/">
+<meta property="og:image" content="https://soldeloscedros.netlify.app/fotos/edificio.png">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="El Sol de Los Cedros">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El Sol de Los Cedros — Junta Directiva 2026">
+<meta name="twitter:description" content="Informe de gestión del edificio El Sol de Los Cedros, Trujillo.">
+<meta name="twitter:image" content="https://soldeloscedros.netlify.app/fotos/edificio.png">
+
 <title>El Sol de Los Cedros — Junta Directiva 2026</title>
+
+<!-- Preconnect para velocidad -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Fuentes con display=swap para no bloquear render -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Schema.org JSON-LD para Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Apartment",
+  "name": "Edificio El Sol de Los Cedros",
+  "description": "Edificio residencial administrado por Junta Directiva 2026",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. América Oeste 242",
+    "addressLocality": "Trujillo",
+    "addressRegion": "La Libertad",
+    "addressCountry": "PE"
+  },
+  "url": "https://soldeloscedros.netlify.app/"
+}
+</script>
 <style>
 /* ═══════════════════════════════════════════
    VARIABLES Y RESET
 ═══════════════════════════════════════════ */
+/* Optimización: reducir repaints */
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { content-visibility: auto; }
 :root {
   --azul: #0D2B55;
   --azul-medio: #1A4A8A;
@@ -1066,6 +1117,28 @@ section { padding: 64px 5%; }
 }
 
 /* ═══════════════════════════════════════════
+   ACCESIBILIDAD
+═══════════════════════════════════════════ */
+/* Focus visible solo con teclado */
+.keyboard-nav *:focus {
+  outline: 3px solid var(--amarillo) !important;
+  outline-offset: 3px !important;
+}
+/* Tamaño mínimo de botones táctiles (44x44px WCAG) */
+button, a.btn-detalle, .nav-links a, .nav-back {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+/* Reducir movimiento para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
 footer {
@@ -1170,20 +1243,38 @@ footer {
 }
 
 /* ═══════════════════════════════════════════
-   RESPONSIVE — MÓVIL
+   RESPONSIVE — TABLET (768px)
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .trabajos-header { flex-direction: column; gap: 16px; }
+  .trabajos-pills { max-width: 100%; }
+  .hero-stats { flex-wrap: wrap; justify-content: center; }
+  .stat-item { flex: 1 1 calc(50% - 10px); min-width: 130px; }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MÓVIL (640px)
 ═══════════════════════════════════════════ */
 @media (max-width: 640px) {
+  /* Fuentes más grandes para adultos mayores */
+  body { font-size: 15px; }
+
   /* Navbar */
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .nav-nombre { font-size: 12px; }
 
   /* Hero */
   .hero { padding: 76px 5% 60px; }
-  .hero-stats { gap: 8px; }
-  .stat-item { min-width: 72px; padding: 11px 10px; }
+  .hero-stats { gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .stat-item { min-width: 130px; flex: 1 1 calc(50% - 8px); padding: 14px 10px; }
+  .stat-numero { font-size: 28px; }
+  .hero-logo-img { width: 110px; height: 110px; }
 
   /* Secciones */
-  section { padding: 48px 4%; }
+  section { padding: 44px 4%; }
 
   /* Alerta */
   .alerta-inner {
@@ -1193,26 +1284,42 @@ footer {
     margin: 0 4%;
   }
 
-  /* Trabajos — 1 columna en móvil */
+  /* Trabajos */
   .trabajos-grid { grid-template-columns: 1fr; }
+  .trabajo-card-body { padding: 18px; }
+  .trabajo-nombre { font-size: 16px; }
+  .trabajo-desc { font-size: 13px; line-height: 1.7; }
+  .btn-detalle { font-size: 12px; padding: 10px 16px; }
 
-  /* Proyectos — 1 columna en móvil */
+  /* Pills de mensajes */
+  .trabajos-header { flex-direction: column; gap: 14px; }
+  .pill-item { font-size: 13px; padding: 10px 14px; }
+
+  /* Proyectos */
   .proyectos-grid { grid-template-columns: 1fr; }
 
-  /* Footer */
-  .footer-top { flex-direction: column; gap: 22px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 4px; }
-
-  /* Tabla cocheras en móvil */
+  /* Cocheras */
+  .cocheras-grid { grid-template-columns: 1fr; }
   .tabla-fila, .tabla-header {
     grid-template-columns: 1.3fr 1fr;
     padding: 10px 12px;
+    font-size: 12px;
   }
+
+  /* Footer */
+  .footer-top { flex-direction: column; gap: 22px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .footer-links { min-width: unset; }
 }
 
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MÓVIL PEQUEÑO (400px)
+═══════════════════════════════════════════ */
 @media (max-width: 400px) {
-  .hero-titulo { letter-spacing: -0.5px; }
+  .hero-titulo { letter-spacing: -0.5px; font-size: 30px; }
   .stat-item { max-width: none; flex: 1 1 calc(50% - 8px); }
+  .pill-item { font-size: 12px; }
+  section { padding: 36px 4%; }
 }
 </style>
 </head>
@@ -1227,7 +1334,7 @@ footer {
 <!-- NAVBAR -->
 <nav class="navbar">
   <a href="#inicio" class="nav-logo">
-    <img src="fotos/logo.png" alt="Logo El Sol de Los Cedros" class="nav-logo-img">
+    <img loading="lazy" decoding="async" src="fotos/logo.png" alt="Logo El Sol de Los Cedros" class="nav-logo-img">
     <div class="nav-nombre">
       El Sol de Los Cedros
       <span>Junta Directiva 2026</span>
@@ -1258,7 +1365,7 @@ footer {
 <section id="inicio" class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-badge">📋 Informe de Gestión · Marzo 2026</div>
-  <img src="fotos/logo.png" alt="El Sol de Los Cedros" class="hero-logo-img">
+  <img loading="lazy" decoding="async" src="fotos/logo.png" alt="El Sol de Los Cedros" class="hero-logo-img">
   <h1 class="hero-titulo">El Sol de<br><span>Los Cedros</span></h1>
   <p class="hero-subtitulo">Urbanización Los Cedros · Trujillo, Perú</p>
   <a href="https://maps.app.goo.gl/9KjKNRkmtGgyXVyi8" target="_blank" class="hero-direccion">
@@ -1324,15 +1431,15 @@ footer {
           <span class="trabajo-badge badge-verde">✔ Operativo</span>
           <div class="foto-galeria">
             <div class="foto-real" onclick="abrirLightbox(this)">
-              <img src="fotos/incendio-inicial-1.png" alt="Motor desarmado">
+              <img loading="lazy" decoding="async" src="fotos/incendio-inicial-1.png" alt="Motor desarmado">
               <span class="foto-real-label">Estado inicial</span>
             </div>
             <div class="foto-real" onclick="abrirLightbox(this)">
-              <img src="fotos/incendio-inicial-2.png" alt="Bobina contactor">
+              <img loading="lazy" decoding="async" src="fotos/incendio-inicial-2.png" alt="Bobina contactor">
               <span class="foto-real-label">Bobina contactor</span>
             </div>
             <div class="foto-real" onclick="abrirLightbox(this)">
-              <img src="fotos/incendio-inicial-3.png" alt="Cuarto de bombas">
+              <img loading="lazy" decoding="async" src="fotos/incendio-inicial-3.png" alt="Cuarto de bombas">
               <span class="foto-real-label">Cuarto de bombas</span>
             </div>
           </div>
@@ -1356,6 +1463,7 @@ footer {
               <span>📷</span><small>Foto<br>sala máquinas</small>
             </div>
           </div>
+          <a href="trabajo-bombas.html" class="btn-detalle">📋 Ver informe completo con fotos →</a>
         </div>
       </div>
 
@@ -1641,7 +1749,7 @@ footer {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-marca">
-        <div class="nombre"><img src="fotos/logo.png" alt="Logo" class="footer-logo-img"> El Sol de Los Cedros</div>
+        <div class="nombre"><img loading="lazy" decoding="async" src="fotos/logo.png" alt="Logo" class="footer-logo-img"> El Sol de Los Cedros</div>
         <div class="sub">Junta Directiva 2026</div>
         <p class="desc">Gestión transparente al servicio de toda la comunidad. Trabajamos cada día para un edificio más seguro y ordenado.</p>
       </div>
@@ -1735,7 +1843,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLightb
   1. Crea una carpeta llamada "fotos" junto al HTML
   2. Pon tus fotos ahí
   3. Reemplaza placeholder por:
-     <img class="foto-thumb" src="fotos/tu-foto.jpg" alt="Descripción" onclick="verFoto(this)">
+     <img loading="lazy" decoding="async" class="foto-thumb" src="fotos/tu-foto.jpg" alt="Descripción" onclick="verFoto(this)">
 
   CÓMO AGREGAR EL VIDEO DE YOUTUBE:
   1. Sube el video a YouTube → modo "No listado"
@@ -1752,5 +1860,72 @@ function verFoto(img) {
   document.body.style.overflow = 'hidden';
 }
 </script>
+<!-- BOTÓN VOLVER ARRIBA -->
+<button class="btn-top" id="btnTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver al inicio" title="Volver arriba">
+  ↑
+</button>
+
+<style>
+.btn-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: var(--azul);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.btn-top.visible { opacity: 1; transform: translateY(0); }
+.btn-top:hover { background: var(--verde); transform: translateY(-2px); }
+@media (max-width: 640px) {
+  .btn-top { bottom: 16px; right: 16px; width: 44px; height: 44px; font-size: 18px; }
+}
+</style>
+
+<script>
+// Botón volver arriba
+const btnTop = document.getElementById('btnTop');
+window.addEventListener('scroll', () => {
+  btnTop.classList.toggle('visible', window.scrollY > 300);
+}, { passive: true });
+
+// Lazy load con IntersectionObserver para imágenes sin soporte nativo
+if ('IntersectionObserver' in window) {
+  const lazyImgs = document.querySelectorAll('img[loading="lazy"]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const img = e.target;
+        if (img.dataset.src) { img.src = img.dataset.src; }
+        observer.unobserve(img);
+      }
+    });
+  }, { rootMargin: '200px' });
+  lazyImgs.forEach(img => observer.observe(img));
+}
+
+// Mejorar accesibilidad: focus visible en teclado
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab') document.body.classList.add('keyboard-nav');
+});
+document.addEventListener('mousedown', () => {
+  document.body.classList.remove('keyboard-nav');
+});
+</script>
+
 </body>
 </html>
