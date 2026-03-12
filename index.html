@@ -447,6 +447,73 @@ section { padding: 64px 5%; }
 ═══════════════════════════════════════════ */
 #trabajos { background: var(--gris); }
 
+/* Header de trabajos — elegante y compacto */
+.trabajos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.trabajos-header-izq {
+  flex-shrink: 0;
+}
+
+.trabajos-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  max-width: 620px;
+}
+
+.pill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+
+.pill-item strong { font-weight: 700; }
+
+.pill-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.pill-verde {
+  background: #F0FAF5;
+  border-color: rgba(30,107,69,0.15);
+  color: #1A5C3A;
+}
+
+.pill-azul {
+  background: #EEF4FF;
+  border-color: rgba(26,74,138,0.15);
+  color: #1A4A8A;
+}
+
+.pill-dorado {
+  background: #FFFBEA;
+  border-color: rgba(180,140,0,0.2);
+  color: #7A5C00;
+}
+
+@media (max-width: 768px) {
+  .trabajos-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .trabajos-pills { max-width: 100%; }
+}
+
 .trabajos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -1176,10 +1243,26 @@ footer {
 <!-- ══ TRABAJOS REALIZADOS ══ -->
 <section id="trabajos">
   <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow" style="color:var(--verde);">✅ Lo que ya hicimos</div>
-      <h2 class="section-titulo">Trabajos Realizados</h2>
-      <div class="linea" style="background:var(--verde);"></div>
+    <div class="trabajos-header reveal">
+      <div class="trabajos-header-izq">
+        <div class="section-eyebrow" style="color:var(--verde);">✅ Lo que ya hicimos</div>
+        <h2 class="section-titulo">Trabajos Realizados</h2>
+        <div class="linea" style="background:var(--verde);"></div>
+      </div>
+      <div class="trabajos-pills">
+        <div class="pill-item pill-verde">
+          <span class="pill-icon">🤝</span>
+          <span>Trabajamos cada día <strong>por tu bienestar</strong> y el de toda la comunidad</span>
+        </div>
+        <div class="pill-item pill-azul">
+          <span class="pill-icon">💳</span>
+          <span>Tu <strong>pago puntual</strong> mantiene nuestro hogar en armonía y paz</span>
+        </div>
+        <div class="pill-item pill-dorado">
+          <span class="pill-icon">📈</span>
+          <span>Un edificio mejor mantenido <strong>incrementa el valor de tu propiedad</strong></span>
+        </div>
+      </div>
     </div>
 
     <div class="trabajos-grid">
