@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Informe detallado del estado y reparación de las bombas de agua del Edificio El Sol de Los Cedros, Trujillo 2026.">
+<meta name="keywords" content="bombas de agua, cisterna, El Sol de Los Cedros, Trujillo, Junta Directiva 2026">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Bombas de Agua — El Sol de Los Cedros">
+<meta property="og:description" content="Informe detallado del estado y reparación de las bombas de agua del Edificio El Sol de Los Cedros, Trujillo 2026.">
+<meta property="og:image" content="https://soldeloscedros.netlify.app/fotos/edificio.png">
+<meta property="og:url" content="https://soldeloscedros.netlify.app/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Bombas de Agua — El Sol de Los Cedros</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0D2B55;
+    --verde: #1E6B45;
+    --amarillo: #F5C218;
+    --rojo: #C0392B;
+    --celeste: #2980B9;
+    --gris: #F4F6F9;
+    --gris-oscuro: #1A202C;
+    --gris-texto: #4A5568;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--gris); color: var(--gris-oscuro); }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    background: var(--azul);
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .nav-back {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 12px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--amarillo); }
+  .nav-sep { color: rgba(255,255,255,0.2); }
+  .nav-titulo { color: white; font-size: 13px; font-weight: 700; }
+  .nav-logo-img {
+    width: 36px; height: 36px; object-fit: contain;
+    border-radius: 50%; background: white; padding: 2px; margin-left: auto;
+  }
+
+  /* ── HERO ── */
+  .trabajo-hero {
+    background: linear-gradient(135deg, #0D2B55 0%, #2980B9 60%, #0D2B55 100%);
+    padding: 48px 6% 40px; color: white;
+    position: relative; overflow: hidden;
+  }
+  .trabajo-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 0, transparent 50%);
+    background-size: 18px 18px;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .trabajo-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px 14px; border-radius: 20px; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--amarillo); margin-bottom: 16px;
+  }
+  .trabajo-titulo { font-size: clamp(24px, 5vw, 36px); font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+  .trabajo-desc {
+    font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7;
+    font-family: 'Lora', serif; font-style: italic; max-width: 600px; margin-bottom: 24px;
+  }
+  .trabajo-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+  .badge-verde { background: rgba(30,107,69,0.3); border: 1px solid rgba(30,107,69,0.5); color: #6EE7A0; }
+  .badge-celeste { background: rgba(41,128,185,0.3); border: 1px solid rgba(41,128,185,0.5); color: #90CDF4; }
+  .badge-amarillo { background: rgba(245,194,24,0.15); border: 1px solid rgba(245,194,24,0.35); color: var(--amarillo); }
+
+  /* ── CONTENIDO ── */
+  .contenido { max-width: 960px; margin: 0 auto; padding: 40px 6% 60px; }
+
+  /* ── ETAPAS ── */
+  .etapa { margin-bottom: 32px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .etapa-header { padding: 20px 28px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #F0F4F8; }
+  .etapa-numero {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; flex-shrink: 0;
+  }
+  .etapa-1 .etapa-numero { background: #FEE2E2; color: var(--rojo); }
+  .etapa-2 .etapa-numero { background: #DBEAFE; color: #1E40AF; }
+  .etapa-3 .etapa-numero { background: #D1FAE5; color: var(--verde); }
+  .etapa-info h3 { font-size: 15px; font-weight: 800; color: var(--gris-oscuro); }
+  .etapa-info p { font-size: 12px; color: var(--gris-texto); margin-top: 2px; font-family: 'Lora', serif; font-style: italic; }
+  .etapa-estado { margin-left: auto; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .estado-problema { background: #FEE2E2; color: var(--rojo); }
+  .estado-proceso  { background: #FEF3C7; color: #92400E; }
+  .estado-listo    { background: #D1FAE5; color: var(--verde); }
+  .etapa-body { padding: 24px 28px; }
+  .etapa-descripcion { font-size: 13px; color: var(--gris-texto); line-height: 1.75; margin-bottom: 20px; font-family: 'Lora', serif; }
+  .etapa-descripcion strong { color: var(--gris-oscuro); }
+
+  /* ── GALERÍA ── */
+  .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .foto-card {
+    border-radius: 10px; overflow: hidden; background: #F8FAFC;
+    border: 2px dashed #CBD5E0; cursor: pointer; transition: all 0.2s;
+    aspect-ratio: 4/3; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    color: #A0AEC0; font-size: 11px; font-weight: 600;
+    text-align: center; padding: 12px; position: relative;
+  }
+  .foto-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; border-radius: 8px; }
+  .foto-card:hover { border-color: var(--celeste); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+  .foto-icon { font-size: 28px; }
+  .foto-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white; font-size: 10px; font-weight: 700;
+    padding: 18px 10px 8px; text-align: center;
+    border-radius: 0 0 8px 8px; display: none;
+  }
+  .foto-card img ~ .foto-label { display: block; }
+
+  /* ── BLOQUE DE 2 BOMBAS ── */
+  .bombas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .bomba-card {
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid transparent;
+  }
+  .bomba-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+  .bomba-card p { font-size: 12px; line-height: 1.6; font-family: 'Lora', serif; }
+  .bomba-operativa { background: #F0FAF5; border-color: rgba(30,107,69,0.2); color: #1A5C3A; }
+  .bomba-problema  { background: #FEF2F2; border-color: rgba(192,57,43,0.2); color: #922B21; }
+  /* Layout bomba + foto alineados */
+  .bombas-con-foto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .bomba-con-foto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .foto-bomba {
+    aspect-ratio: 4/3;
+    width: 100%;
+  }
+
+  .bomba-badge {
+    display: inline-block; margin-top: 8px;
+    font-size: 10px; font-weight: 700; padding: 3px 10px;
+    border-radius: 10px; text-transform: uppercase;
+  }
+  .bomba-badge.ok  { background: #D1FAE5; color: var(--verde); }
+  .bomba-badge.err { background: #FEE2E2; color: var(--rojo); }
+
+  /* ── SECCIÓN BENEFICIOS Y RIESGOS ── */
+  .seccion-titulo {
+    font-size: 11px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--gris-oscuro); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .seccion-titulo::after { content: ''; flex: 1; height: 1px; background: #E2E8F0; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .info-card {
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid transparent;
+  }
+  .info-card h4 {
+    font-size: 13px; font-weight: 800; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .info-card ul li {
+    font-size: 12px; line-height: 1.55; color: var(--gris-texto);
+    font-family: 'Lora', serif;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .info-card ul li::before { content: '•'; flex-shrink: 0; font-weight: 900; }
+
+  .card-verde  { background: #F0FAF5; border-color: rgba(30,107,69,0.15); }
+  .card-verde h4 { color: #1A5C3A; }
+  .card-verde ul li::before { color: var(--verde); }
+
+  .card-rojo   { background: #FEF2F2; border-color: rgba(192,57,43,0.15); }
+  .card-rojo h4 { color: #922B21; }
+  .card-rojo ul li::before { color: var(--rojo); }
+
+  .card-amarillo { background: #FFFBEA; border-color: rgba(180,140,0,0.15); }
+  .card-amarillo h4 { color: #7A5C00; }
+  .card-amarillo ul li::before { color: #D97706; }
+
+  .card-azul { background: #EEF4FF; border-color: rgba(26,74,138,0.15); }
+  .card-azul h4 { color: #1A4A8A; }
+  .card-azul ul li::before { color: var(--azul); }
+
+  /* ── ALERTA ── */
+  .alerta-box {
+    background: #FFF8E1; border: 1px solid rgba(245,194,24,0.4);
+    border-left: 4px solid var(--amarillo); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 20px;
+    font-size: 12.5px; color: #7A5C00; line-height: 1.6;
+  }
+  .alerta-box strong { color: #92400E; }
+
+  /* ── RESUMEN FINAL ── */
+  .resumen-final {
+    background: linear-gradient(135deg, #0D2B55, #2980B9);
+    border-radius: 16px; padding: 28px 32px; color: white;
+    display: flex; gap: 20px; align-items: center; margin-top: 8px;
+  }
+  .resumen-icono { font-size: 40px; flex-shrink: 0; }
+  .resumen-texto h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+  .resumen-texto p { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; font-family: 'Lora', serif; font-style: italic; }
+
+  /* ── LIGHTBOX ── */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 10px; object-fit: contain; }
+  .lightbox-close { position: fixed; top: 20px; right: 24px; color: white; font-size: 32px; cursor: pointer; background: rgba(255,255,255,0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+  /* ── FOOTER ── */
+  .pie { background: var(--azul); color: rgba(255,255,255,0.5); text-align: center; font-size: 11px; padding: 20px; }
+
+  @media (max-width: 640px) {
+    .bombas-grid, .info-grid, .bombas-con-foto { grid-template-columns: 1fr; }
+    .trabajo-hero { padding: 32px 5% 28px; }
+    .contenido { padding: 28px 5% 48px; }
+    .etapa-body { padding: 18px; }
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+    .resumen-final { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-back">← Volver</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-titulo">Bombas de Agua</span>
+  <img loading="lazy" decoding="async" src="fotos/logo.png" alt="Logo" class="nav-logo-img">
+</nav>
+
+<!-- HERO -->
+<section class="trabajo-hero">
+  <div class="hero-content">
+    <div class="trabajo-eyebrow">💧 Trabajo Realizado · Marzo 2026</div>
+    <h1 class="trabajo-titulo">Bombas de Agua</h1>
+    <p class="trabajo-desc">
+      El edificio cuenta con 2 bombas que abastecen la cisterna elevada. 
+      Al detectar que una no funcionaba, la Junta Directiva coordinó de inmediato 
+      con el técnico para dejar ambas operativas.
+    </p>
+    <div class="trabajo-badges">
+      <span class="badge badge-verde">✅ Ambas operativas</span>
+      <span class="badge badge-celeste">💧 Sistema alternado</span>
+      <span class="badge badge-amarillo">📅 Marzo 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<main class="contenido">
+
+  <!-- ETAPA 1 — SITUACIÓN ENCONTRADA -->
+  <div class="etapa etapa-1">
+    <div class="etapa-header">
+      <div class="etapa-numero">1</div>
+      <div class="etapa-info">
+        <h3>Situación encontrada</h3>
+        <p>Estado de las bombas al inicio de la gestión</p>
+      </div>
+      <span class="etapa-estado estado-problema">⚠️ Problema</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        El edificio cuenta con <strong>2 bombas de agua</strong> que trabajan de forma alterna 
+        para abastecer la cisterna elevada ubicada en la parte superior, la cual distribuye 
+        el agua a cada departamento. Al realizar la inspección de la sala de máquinas, 
+        se constató que <strong>una de las dos bombas no estaba funcionando</strong>, 
+        reduciendo el sistema a solo la mitad de su capacidad.
+      </p>
+      <div class="bombas-con-foto">
+        <div class="bomba-con-foto">
+          <div class="bomba-card bomba-operativa">
+            <h4>💧 Bomba N° 1</h4>
+            <p>Funcionando correctamente al momento de la inspección.</p>
+            <span class="bomba-badge ok">✔ Operativa</span>
+          </div>
+          <div class="foto-card foto-bomba" onclick="verFoto(this)">
+            <!-- <img loading="lazy" decoding="async" src="fotos/bombas-inicial-1.jpg"> -->
+            <span class="foto-icon">📷</span>
+            <span>Foto Bomba N°1</span>
+            <span class="foto-label">Bomba N°1</span>
+          </div>
+        </div>
+        <div class="bomba-con-foto">
+          <div class="bomba-card bomba-problema">
+            <h4>💧 Bomba N° 2</h4>
+            <p>Sin funcionamiento. Había sido reparada a fines del año anterior pero dejó de operar nuevamente.</p>
+            <span class="bomba-badge err">✘ Sin funcionar</span>
+          </div>
+          <div class="foto-card foto-bomba" onclick="verFoto(this)">
+            <!-- <img loading="lazy" decoding="async" src="fotos/bombas-inicial-2.jpg"> -->
+            <span class="foto-icon">📷</span>
+            <span>Foto Bomba N°2</span>
+            <span class="foto-label">Bomba N°2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 2 — COORDINACIÓN Y REPARACIÓN -->
+  <div class="etapa etapa-2">
+    <div class="etapa-header">
+      <div class="etapa-numero">2</div>
+      <div class="etapa-info">
+        <h3>Coordinación y reparación</h3>
+        <p>Gestión realizada por la Junta Directiva</p>
+      </div>
+      <span class="etapa-estado estado-proceso">🔧 Gestión</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        Al detectar el problema, la Junta Directiva procedió a <strong>comunicarse de inmediato 
+        con el presidente de la junta anterior</strong>, quien informó que la bomba había sido 
+        reparada a fines del año pasado. Se coordinó con el mismo técnico mecánico-eléctrico 
+        quien acudió al edificio y logró <strong>poner en funcionamiento las 2 bombas</strong>, 
+        dejando el sistema completamente operativo.
+      </p>
+
+      <div class="galeria">
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img loading="lazy" decoding="async" src="fotos/bombas-reparacion-1.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Técnico en sala</span>
+          <span class="foto-label">Técnico trabajando</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img loading="lazy" decoding="async" src="fotos/bombas-reparacion-2.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Reparación</span>
+          <span class="foto-label">Reparación</span>
+        </div>
+        <div class="foto-card" onclick="verFoto(this)">
+          <!-- <img loading="lazy" decoding="async" src="fotos/bombas-resultado.jpg"> -->
+          <span class="foto-icon">📷</span>
+          <span>Ambas operativas</span>
+          <span class="foto-label">Ambas operativas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 3 — SITUACIÓN ACTUAL -->
+  <div class="etapa etapa-3">
+    <div class="etapa-header">
+      <div class="etapa-numero">3</div>
+      <div class="etapa-info">
+        <h3>Situación actual</h3>
+        <p>Estado del sistema al día de hoy</p>
+      </div>
+      <span class="etapa-estado estado-listo">✅ Operativas</span>
+    </div>
+    <div class="etapa-body">
+      <p class="etapa-descripcion">
+        Ambas bombas se encuentran funcionando correctamente de forma <strong>alterna</strong> — 
+        es decir, trabajan en turnos para no sobrecalentarse y prolongar su vida útil. 
+        El sistema garantiza el abastecimiento continuo de agua a todos los departamentos del edificio.
+      </p>
+
+      <div class="bombas-con-foto">
+        <div class="bomba-con-foto">
+          <div class="bomba-card bomba-operativa">
+            <h4>💧 Bomba N° 1</h4>
+            <p>Funcionando correctamente en sistema alternado.</p>
+            <span class="bomba-badge ok">✔ Operativa</span>
+          </div>
+          <div class="foto-card foto-bomba" onclick="verFoto(this)">
+            <!-- <img loading="lazy" decoding="async" src="fotos/bombas-actual-1.jpg"> -->
+            <span class="foto-icon">📷</span>
+            <span>Foto Bomba N°1</span>
+            <span class="foto-label">Bomba N°1 operativa</span>
+          </div>
+        </div>
+        <div class="bomba-con-foto">
+          <div class="bomba-card bomba-operativa">
+            <h4>💧 Bomba N° 2</h4>
+            <p>Reparada y funcionando correctamente en sistema alternado.</p>
+            <span class="bomba-badge ok">✔ Operativa</span>
+          </div>
+          <div class="foto-card foto-bomba" onclick="verFoto(this)">
+            <!-- <img loading="lazy" decoding="async" src="fotos/bombas-actual-2.jpg"> -->
+            <span class="foto-icon">📷</span>
+            <span>Foto Bomba N°2</span>
+            <span class="foto-label">Bomba N°2 operativa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN INFORMATIVA -->
+  <div style="background:white; border-radius:16px; padding:28px; box-shadow:0 4px 20px rgba(0,0,0,0.06); margin-bottom:32px;">
+
+    <div class="seccion-titulo">✅ Beneficios de tener las 2 bombas operativas</div>
+    <div class="info-grid" style="margin-bottom:28px;">
+      <div class="info-card card-verde">
+        <h4>💧 Abastecimiento continuo</h4>
+        <ul>
+          <li>Agua garantizada en todos los departamentos las 24 horas.</li>
+          <li>Si una bomba falla, la otra continúa operando sin interrupciones.</li>
+          <li>El sistema alternado reduce el desgaste de cada bomba.</li>
+        </ul>
+      </div>
+      <div class="info-card card-azul">
+        <h4>⚙️ Mayor vida útil del equipo</h4>
+        <ul>
+          <li>Al alternarse, ninguna bomba trabaja en exceso.</li>
+          <li>Menor calentamiento = menor riesgo de falla prematura.</li>
+          <li>Ahorro en reparaciones y reemplazos a largo plazo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="seccion-titulo">⚠️ ¿Qué pasa si solo funciona una bomba?</div>
+    <div class="alerta-box" style="margin-bottom:16px;">
+      <strong>⚡ Riesgo de sobrecarga:</strong> Una sola bomba trabajaría el doble de tiempo, 
+      elevando la temperatura del motor y acortando drásticamente su vida útil. 
+      Esto puede derivar en una falla total del sistema de agua del edificio.
+    </div>
+    <div class="info-grid" style="margin-bottom:28px;">
+      <div class="info-card card-amarillo">
+        <h4>⚠️ Riesgos inmediatos</h4>
+        <ul>
+          <li>Sobrecalentamiento del motor de la bomba activa.</li>
+          <li>Posible corte de agua en horas pico (mañana y noche).</li>
+          <li>Mayor consumo eléctrico por trabajo continuo.</li>
+          <li>Riesgo de quema del motor por uso excesivo.</li>
+        </ul>
+      </div>
+      <div class="info-card card-rojo">
+        <h4>🚨 ¿Qué pasa si la última bomba falla?</h4>
+        <ul>
+          <li>Corte total de agua en todos los departamentos.</li>
+          <li>Sin abastecimiento a la cisterna elevada.</li>
+          <li>Emergencia que requiere reparación urgente y costosa.</li>
+          <li>Afecta directamente la calidad de vida de todos los residentes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="seccion-titulo">🔧 Recomendaciones para mantenerlas en buen estado</div>
+    <div class="info-grid">
+      <div class="info-card card-verde">
+        <h4>✅ Acciones preventivas</h4>
+        <ul>
+          <li>Revisión técnica semestral por mecánico eléctrico especializado.</li>
+          <li>Verificar mensualmente que ambas bombas arrancan correctamente.</li>
+          <li>Mantener la sala de máquinas limpia y ventilada.</li>
+          <li>El <strong>vigilante o cualquier residente</strong> que detecte ruido inusual, vibración o baja presión debe reportarlo de inmediato a la Junta Directiva.</li>
+        </ul>
+      </div>
+      <div class="info-card card-azul">
+        <h4>📋 Para los residentes</h4>
+        <ul>
+          <li>Si nota baja presión de agua, informar a la Junta de inmediato.</li>
+          <li>Evitar consumo excesivo en <strong>horas pico</strong>: 6:00–8:00 a.m. y 7:00–9:00 p.m. — horarios de mayor demanda según SEDALIB en Trujillo.</li>
+          <li>No ingresar a la sala de máquinas sin autorización de la Junta.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESUMEN FINAL -->
+  <div class="resumen-final">
+    <div class="resumen-icono">💧</div>
+    <div class="resumen-texto">
+      <h3>El agua de tu hogar está garantizada</h3>
+      <p>
+        Gracias a la gestión oportuna de la Junta Directiva, ambas bombas están operativas 
+        y tu familia cuenta con agua las 24 horas. Mantener este sistema en óptimas condiciones 
+        depende del aporte puntual de todos los propietarios.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="pie">
+  © 2026 Edificio El Sol de Los Cedros · Junta Directiva 2026 · Av. América Oeste 242, Urb. Los Cedros — Trujillo
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="cerrarFoto()">
+  <span class="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function verFoto(card) {
+  const img = card.querySelector('img');
+  if (!img) return;
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function cerrarFoto() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarFoto(); });
+</script>
+
+<!-- BOTÓN VOLVER ARRIBA -->
+<button class="btn-top" id="btnTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver al inicio">↑</button>
+<style>
+.btn-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 48px; height: 48px; background: var(--azul); color: white;
+  border: none; border-radius: 50%; font-size: 20px; font-weight: 700;
+  cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  opacity: 0; transform: translateY(12px); transition: all 0.3s ease;
+  z-index: 500; display: flex; align-items: center; justify-content: center;
+}
+.btn-top.visible { opacity: 1; transform: translateY(0); }
+.btn-top:hover { background: var(--verde); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+/* Tamaño mínimo botones táctiles */
+button, a { min-height: 44px; }
+</style>
+<script>
+const btnTop = document.getElementById('btnTop');
+window.addEventListener('scroll', () => {
+  btnTop.classList.toggle('visible', window.scrollY > 300);
+}, { passive: true });
+</script>
+</body>
+</html>
