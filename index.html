@@ -315,6 +315,30 @@ img {
   animation: fadeDown 0.7s ease both 0.35s;
 }
 
+.hero-direccion {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  color: rgba(255,255,255,0.70);
+  font-size: clamp(10px, 2.5vw, 12px);
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.25s;
+  animation: fadeDown 0.7s ease both 0.32s;
+  letter-spacing: 0.3px;
+}
+
+.hero-direccion:hover {
+  background: rgba(245,194,24,0.18);
+  border-color: rgba(245,194,24,0.45);
+  color: var(--amarillo);
+}
+
 .hero-desc {
   max-width: 520px;
   font-size: clamp(12px, 3vw, 14px);
@@ -364,14 +388,28 @@ img {
 
 .hero-scroll {
   position: absolute;
-  bottom: 22px; left: 50%;
+  bottom: 18px;
+  left: 50%;
   transform: translateX(-50%);
-  color: rgba(255,255,255,0.30);
+  color: rgba(255,255,255,0.40);
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   animation: bounce 2s infinite;
   white-space: nowrap;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(to bottom, rgba(245,194,24,0.5), transparent);
+  display: block;
 }
 
 /* ═══════════════════════════════════════════
@@ -1109,6 +1147,9 @@ footer {
   <img src="fotos/logo.png" alt="El Sol de Los Cedros" class="hero-logo-img">
   <h1 class="hero-titulo">El Sol de<br><span>Los Cedros</span></h1>
   <p class="hero-subtitulo">Urbanización Los Cedros · Trujillo, Perú</p>
+  <a href="https://maps.app.goo.gl/9KjKNRkmtGgyXVyi8" target="_blank" class="hero-direccion">
+    📍 Av. América Oeste 242, Urb. Los Cedros — Trujillo
+  </a>
   <div class="hero-divider"></div>
   <p class="hero-desc">Toda la información sobre lo que tu Junta Directiva está haciendo para mejorar nuestro edificio. Gestión transparente al alcance de todos.</p>
   <div class="hero-stats">
@@ -1480,10 +1521,11 @@ footer {
         <a href="#proyectos">Proyectos futuros</a>
       </div>
       <div class="footer-links">
-        <h4>Ubicación</h4>
-        <a href="#">Urb. Los Cedros</a>
-        <a href="#">Trujillo, La Libertad</a>
-        <a href="#">Perú</a>
+        <h4>📍 Ubicación</h4>
+        <a href="https://maps.app.goo.gl/9KjKNRkmtGgyXVyi8" target="_blank">Av. América Oeste 242</a>
+        <a href="https://maps.app.goo.gl/9KjKNRkmtGgyXVyi8" target="_blank">Urb. Los Cedros, Trujillo</a>
+        <a href="https://maps.app.goo.gl/9KjKNRkmtGgyXVyi8" target="_blank">La Libertad, Perú</a>
+        <a href="https://maps.app.goo.gl/9KjKNRkmtGgyXVyi8" target="_blank" style="color:var(--amarillo); margin-top:6px; display:flex; align-items:center; gap:5px;">🗺️ Ver en Google Maps</a>
       </div>
     </div>
     <div class="footer-bottom">
